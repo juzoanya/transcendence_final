@@ -1,0 +1,22 @@
+ssl_certificate /etc/nginx/ssl/certs/pong.crt;
+ssl_certificate_key /etc/nginx/ssl/private/pong.key;
+ssl_trusted_certificate /etc/nginx/ssl/rootCA/rootCA.crt;
+
+
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_prefer_server_ciphers on;
+
+ssl_session_timeout 1d;
+ssl_session_cache shared:SSL:10m;
+ssl_session_tickets off;
+
+resolver 8.8.8.8 8.8.4.4 valid=300s;
+resolver_timeout 5s;
+
+add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+add_header X-Content-Type-Options nosniff;
+add_header X-Frame-Options DENY;
+add_header X-XSS-Protection "1; mode=block";
+add_header Referrer-Policy "no-referrer-when-downgrade";
+add_header Content-Security-Policy "default-src 'self' ${BACKEND_URL} ${FRONTEND_URL}; connect-src ${BACKEND_URL} ${GLOBAL_WEBSOCKET_URL};  script-src-elem 'self'; style-src-elem 'self' https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css; font-src https://cdnjs.cloudflare.com/ajax/libs/font-awesome/; img-src 'self' data: www.w3.org/svg/2000";
+# add_header Content-Security-Policy "default-src 'self' ${NGINX_FRONTEND_URI} ${NGINX_BACKEND_URI}; script-src-elem 'self'; style-src-elem 'self' https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css; font-src https://cdnjs.cloudflare.com/ajax/libs/font-awesome/; img-src 'self' www.w3.org/svg/2000";

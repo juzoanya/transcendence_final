@@ -1,0 +1,138 @@
+// {
+//     "env": {
+//         "browser": true,
+//         "es2021": true
+//     },
+//     "parser": "@babel/eslint-parser",
+//     "parserOptions": {
+//         "requireConfigFile": false,
+//         "babelOptions": {
+//             "presets": [
+//                 "@babel/preset-env"
+//             ]
+//         }
+//     },
+//     "overrides": [
+//         {
+//             "files": [
+//                 "*.ts",
+//                 "*.tsx"
+//             ],
+//             "parser": "@typescript-eslint/parser",
+//             "parserOptions": {
+//                 "project": "./tsconfig.json"
+//             },
+//             "plugins": [
+//                 "@typescript-eslint"
+//             ],
+//             "extends": [
+//                 "eslint:recommended",
+//                 "plugin:@typescript-eslint/recommended"
+//             ]
+//         }
+//     ],
+//     "rules": {
+//         "prettier/prettier": [
+//             "error"
+//         ],
+//         "max-len": "off"
+//     }
+// }
+{
+    "plugins": [
+        "jsdoc"
+    ],
+    "extends": [
+        "airbnb-base",
+        "plugin:jsdoc/recommended"
+    ],
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false,
+        "babelOptions": {
+            "presets": [
+                "@babel/preset-env"
+            ]
+        }
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
+                "project": "./tsconfig.json"
+            },
+            "plugins": [
+                "@typescript-eslint"
+            ],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+            ],
+            "rules": {
+                // Add TypeScript-specific rules here
+            }
+        }
+    ],
+    "rules": {
+        "max-len": "off",
+        "jsdoc/require-property-description": "off",
+        "jsdoc/require-param-description": "off",
+        "jsdoc/require-returns-description": "off",
+        "jsdoc/no-undefined-types": [
+            1,
+            {
+                "definedTypes": [
+                    "RequestInit",
+                    "HeadersInit",
+                    "Transferable",
+                    "TemplateStringsArray",
+                    "ChildNode",
+                    "EventListener",
+                    "AddEventListenerOptions",
+                    "EventListenerObject",
+                    "APITypes",
+                    "PongRemoteClientMsgTypes",
+                    "PongRemoteServerMsgTypes",
+                    "GameWorkerTypes",
+                    "PongGameTypes"
+                ]
+            }
+        ],
+        "no-plusplus": "off",
+        "import/extensions": "off",
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "camelcase": "off",
+        "no-underscore-dangle": "off",
+        "class-methods-use-this": [
+            "error",
+            {
+                "exceptMethods": [
+                    "requestUpdate",
+                    "render",
+                    "onConnected",
+                    "onDisconnected",
+                    "onColorChange",
+                    "onAttributeChange",
+                    "onBeforeMount",
+                    "onAfterMount",
+                    "onBeforeUnMount",
+                    "onAfterUnMount",
+                    "onRouteChange"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,43 @@
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$border-radius: 0.4rem;
+// $primary: #7952b3;
+
+$primary-light: #b797e8;
+$primary: #7952b3;
+$primary-new:rgb(37, 88, 122);
+$primary: $primary-new;
+
+[data-bs-theme='dark'] {
+    $primary: $primary-light;
+
+    // .btn-primary {
+    //     background-color: $primary;
+    //     border-color: $primary;
+    // }
+
+    // Weitere Komponenten überschreiben, falls erforderlich
+    .btn-outline-primary {
+        $btn-color: $primary;
+    }
+
+    .btn-dark {
+        @extend .btn-light !optional;
+    }
+    .btn-outline-dark {
+        @extend .btn-outline-light !optional;
+    }
+
+    // .btn-dark {
+    //   --bs-btn-bg: #{mix($gray-600, $blue-400, .5)};
+    //   --bs-btn-border-color: #{rgba($white, .25)};
+    //   --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
+    //   --bs-btn-hover-border-color: #{rgba($white, .25)};
+    //   --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
+    //   --bs-btn-active-border-color: #{rgba($white, .5)};
+    //   --bs-btn-focus-border-color: #{rgba($white, .5)};
+    //   --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+    // }
+}

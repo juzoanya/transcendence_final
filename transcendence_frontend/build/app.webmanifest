@@ -1,0 +1,60 @@
+{
+    "name": "AwesomePong",
+    "short_name": "Pong",
+    "icons": [
+        {
+            "src": "/favicons/favicon_32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/favicons/favicon_48x48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "/favicons/favicon_96x96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/favicons/favicon_120x120.png",
+            "type": "image/png",
+            "sizes": "120x120"
+        },
+        {
+            "src": "/favicons/favicon_152x152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/favicons/favicon_167x167.png",
+            "type": "image/png",
+            "sizes": "167x167"
+        },
+        {
+            "src": "/favicons/favicon_180x180.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/favicons/favicon_192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "https://pong42.com/",
+    "display": "standalone",
+    "id": "/",
+    "theme_color": "#1a1d20",
+    "background_color": "#1a1d20",
+    "scope": "https://pong42.com/",
+    "lang": "en",
+    "dir": "ltr",
+    "orientation": "portrait-primary",
+    "description": "play pong and other games against your friends",
+    "categories": [
+        "games",
+        "entertainment"
+    ]
+}

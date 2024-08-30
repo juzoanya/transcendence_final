@@ -1,0 +1,68 @@
+services:
+
+  backend:
+    build: ./transcendence_backend
+    container_name: backend
+    env_file: '.env'
+    
+    volumes:
+      - backend_data:/app/
+      - staticfiles:/app/static/
+    depends_on:
+      - postgres
+      - redis
+
+
+  nginx:
+    build:
+      context: ./transcendence_frontend
+      args:
+        - VITE_BACKEND_URL=${BACKEND_URL}
+        - VITE_FRONTEND_URL=${FRONTEND_URL}
+        - VITE_GLOBAL_WEBSOCKET_URL=${GLOBAL_WEBSOCKET_URL}
+        - NGINX_FRONTEND_URI=${NGINX_FRONTEND_URI}
+        - NGINX_BACKEND_URI=${NGINX_BACKEND_URI}
+        - NGINX_IP_ADDRESS=${NGINX_IP_ADDRESS}
+    container_name: nginx
+    volumes:
+      - staticfiles:/app/static/
+      - ./transcendence_frontend/ssl/ssl/:/etc/nginx/ssl/
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file: './.env'
+    depends_on:
+      - backend
+
+
+  redis:
+    image: redis:7
+    container_name: 'redis'
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: 'postgres'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    env_file: '.env'
+
+
+volumes:
+  backend_data:
+    name: backend_data
+    driver: local
+    driver_opts:
+      device: ./transcendence_backend/backend
+      o: bind
+      type: none
+
+  postgres-data:
+
+  staticfiles:
+      name: staticfiles
+      driver: local
+      driver_opts:
+        device: ./transcendence_backend/static
+        o: bind
+        type: none
+

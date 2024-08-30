@@ -1,0 +1,5 @@
+.env
+postgres-data/
+transcendence_frontend/ssl/ssl/
+transcendence_frontend/projectnotes.txt
+transcendence_frontend/node_modules

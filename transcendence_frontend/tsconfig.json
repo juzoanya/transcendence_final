@@ -1,0 +1,39 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "lib": [
+            "dom",
+            "ES2022.Object"
+        ],
+        "noEmit": true,
+        "allowJs": true,
+        "checkJs": true,
+        "declaration": true,
+        "strict": true,
+        "module": "ESNext",
+        "target": "ES2020",
+        "declarationDir": "./types",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "types": [
+            "vitest/globals"
+        ],
+        "plugins": [
+            {
+                "name": "ts-lit-plugin",
+                "strict": true,
+                "rules": {
+                    "no-missing-import": "off"
+                }
+            }
+        ]
+    },
+    "include": [
+        "public/**/*",
+        "src/**/*",
+        "types/**/*",
+    ],
+    "exclude": [
+        "dist"
+    ]
+}
